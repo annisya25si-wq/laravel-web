@@ -157,24 +157,34 @@
                 <div class="card">
         <div class="card-body">
             <h5 class="card-title">Form Pertanyaan</h5>
-            <form action="{{ route('question.store') }}" method="POST">
-                @csrf
-                <div class="mb-3">
-                    <label for="nama" class="form-label">Nama</label>
-                    <input type="text" name="nama" class="form-control" id="nama">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" id="email">
-                </div>
-                <div class="mb-3">
-                    <label for="pertanyaan" class="form-label">Pertanyaan</label>
-                    <textarea name="pertanyaan" class="form-control" id="pertanyaan" rows="4"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Kirim Pertanyaan</button>
-            </form>
+            <!-- TAMBAHKAN KODE ERRROR INI DI SINI -->
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
+    @endif
+
+   <form action="{{ route('question.store') }}" method="POST">
+    @csrf
+    <div class="mb-3">
+        <label for="nama" class="form-label">Nama</label>
+        <input type="text" name="nama" class="form-control" id="nama" value="{{ old('nama') }}">
     </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}">
+    </div>
+    <div class="mb-3">
+        <label for="pertanyaan" class="form-label">Pertanyaan</label>
+        <textarea name="pertanyaan" class="form-control" id="pertanyaan" rows="4">{{ old('pertanyaan') }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Kirim Pertanyaan</button>
+</form>
+
                 {{-- Alerts --}}
                 <div class="card ">
                     <div class="card-body">

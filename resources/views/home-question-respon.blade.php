@@ -52,12 +52,12 @@
 <body>
 
     <div class="thankyou-container">
-        <h2>Terima Kasih, BUDI! 🎉</h2>
+        <h2>Terima Kasih, {{$nama}}! 🎉</h2>
         <p class="lead">Pertanyaan Anda telah berhasil dikirim.</p>
 
         <blockquote>
             <strong>Pertanyaan Anda:</strong><br>
-            "Siapakah Nama Orang Tua Budi?"
+            "{{$pertanyaan}}"
         </blockquote>
 
         <p class="email-info mt-4">
