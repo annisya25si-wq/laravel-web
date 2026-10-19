@@ -64,7 +64,16 @@ class PelangganController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $dataPelanggan = Pelanggan::findOrFail($id);
+        $dataPelanggan->first_name = $request->first_name;
+        $dataPelanggan->last_name = $request->last_name;
+        $dataPelanggan->birthday = $request->birthday;
+        $dataPelanggan->gender = $request->gender;
+        $dataPelanggan->email = $request->email;
+        $dataPelanggan->phone = $request->phone;
+        $dataPelanggan->save();
+
+        return redirect()->route('pelanggan.index')->with('success', 'Data pelanggan berhasil diperbarui.');
     }
 
     /**
@@ -72,7 +81,10 @@ class PelangganController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pelanggan = Pelanggan::findOrFail($id);
+
+    $pelanggan->delete();
+    return redirect()->route('pelanggan.index')->with('success', 'Data berhasil dihapus');
     }
 }
 

@@ -301,7 +301,7 @@
             <div class="col-12 mb-4">
                 <div class="card border-0 shadow components-section">
                     <div class="card-body">
-                        <form action="{{ route('pelanggan.update', $dataPelanggan->id) }}" method="POST">
+                      <form action="{{ route('pelanggan.update', $dataPelanggan->pelanggan_id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="row mb-4">
@@ -330,10 +330,10 @@
                                     <div class="mb-3">
                                         <label for="gender" class="form-label">Gender</label>
                                         <select id="gender" name="gender" class="form-select">
-                                            <option value="">-- Pilih --</option>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                            <option value="Other">Other</option>
+                                       <select class="form-select" id="gender" name="gender" required>
+                                        <option value="Female"{{ $dataPelanggan->gender == 'Female' ? 'selected' : '' }}> Female</option>
+                                        <option value="Male"{{ $dataPelanggan->gender == 'Male' ? 'selected' : '' }}>Male</option>
+       
                                         </select>
                                     </div>
                                 </div>
