@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PelangganController;
 
 Route::get('/', function () {
     return view('home', [
@@ -35,3 +36,5 @@ Route::get('/home-question-respon', function () {
 })->name('home-question-respon');
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::resource('pelanggan', PelangganController::class); 
