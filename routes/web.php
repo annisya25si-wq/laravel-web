@@ -7,7 +7,7 @@ use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PelangganController;
-use APP\Http\Controllers\UserController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('home', [

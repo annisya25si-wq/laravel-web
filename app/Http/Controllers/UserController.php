@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Models\User;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -29,7 +30,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6',
+        ]);
+
+       $data = $request->all();
+        // Enkripsi password menggunakan Hash::make()
+        $data['password'] = Hash::make($request->password);
+
+        User::create($data);
+
+        return redirect()->route('user.index')->with('success', 'User created successfully.');
     }
 
     /**
@@ -45,7 +58,8 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -53,7 +67,26 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $request->validate([
+            'name'  => 'required',
+            'email' => 'required|email|unique:users,email,'.$id,
+        ]);
+
+        $data = $request->all();
+
+        // Jika password diisi saat edit, enkripsi password baru
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->password);
+        } else {
+            // Jika password dikosongkan, gunakan password lama
+            unset($data['password']);
+        }
+
+        $user->update($data);
+
+        return redirect('/user')->with('success', 'User berhasil diperbarui!');
     }
 
     /**
@@ -61,6 +94,9 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect('/user')->with('success', 'User berhasil dihapus!');
     }
 }

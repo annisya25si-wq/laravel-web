@@ -41,7 +41,7 @@
     <!-- Volt CSS -->
     <link type="text/css" href="{{ asset('assets-admin/css/volt.css') }}" rel="stylesheet">
     {{-- End CSS --}}
-    @include('layouts.layouts.admin.css');
+    @include('layouts.admin.css');
 
 </head>
 
@@ -62,7 +62,7 @@
     </nav>
     {{-- end sidebar --}}
     <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
-        @include('layouts.layouts.admin.sidebar')
+        @include('layouts.admin.sidebar')
         <div class="sidebar-inner px-4 pt-3">
             <div
                 class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
@@ -334,7 +334,7 @@
                     </ul>
                 </div>
             </div>
-            @include('layouts.layouts.admin.header')
+            @include('layouts.admin.header')
         </nav>
         {{-- end header --}}
        {{-- start main content --}}
