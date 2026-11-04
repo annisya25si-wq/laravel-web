@@ -87,6 +87,16 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+        <a href="#" class="nav-link">
+            <span class="sidebar-icon">
+                <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v1H4zm7 0v-1h5v1h-5zm5-3H4V7h12v3z" clip-rule="evenodd"></path></svg>
+            </span>
+            <span class="sidebar-text">Tables</span>
+        </a>
+    </li>
+</ul>
+
             <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
             
             <li class="nav-item">
