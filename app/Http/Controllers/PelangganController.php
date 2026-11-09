@@ -4,16 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pelanggan;
+use illuminate\Database\Eloquent\Builder;
 
 class PelangganController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        	$data['dataPelanggan'] = Pelanggan::all();
-		return view('admin.pelanggan.index',$data);
+        $filterableColumns = ['gender'];
+        $searchableColumns = ['first_name', 'last_name', 'email'];
+        $pageData['dataPelanggan'] = Pelanggan::filter($request, $filterableColumns)
+        ->search($request, $searchableColumns)
+        ->paginate(10);
+        return view('admin.pelanggan.index', $pageData);
     }
 
     /**
