@@ -1,23 +1,16 @@
 <!--
-
 =========================================================
 * Volt Pro - Premium Bootstrap 5 Dashboard
 =========================================================
-
 * Product Page: https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard
 * Copyright 2021 Themesberg (https://www.themesberg.com)
 * License (https://themesberg.com/licensing)
-
 * Designed and coded by https://themesberg.com
-
 =========================================================
-
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Please contact us to request a removal.
-
 -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Primary Meta Tags -->
@@ -25,32 +18,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title" content="Volt - Free Bootstrap 5 Dashboard">
     <meta name="author" content="Themesberg">
-
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets-admin/img/favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32"
-        href="{{ asset('assets-admin/img/favicon/favicon-32x32.png') }}">
+        href="{{ asset('assets.admin/img/favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16"
-        href="{{ asset('assets-admin/img/favicon/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('assets-admin/img/favicon/site.webmanifest') }}">
-    <link rel="mask-icon" href="{{ asset('assets-admin/img/favicon/safari-pinned-tab.svg') }}" color="#ffffff">
+        href="{{ asset('assets.admin/img/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('assets.admin/img/favicon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('assets.admin/img/favicon/safari-pinned-tab.svg') }}" color="#ffffff">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
-
     {{-- Start CSS --}}
     <!-- Volt CSS -->
-    <link type="text/css" href="{{ asset('assets-admin/css/volt.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ asset('assets.admin/css/volt.css') }}" rel="stylesheet">
     {{-- End CSS --}}
-    @include('layouts.admin.css');
-
+    @include('layouts.admin.css')
 </head>
-
 <body>
     {{-- start sidebar --}}
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
         <a class="navbar-brand me-lg-5" href="../../index.html">
-            <img class="navbar-brand-dark" src="{{ asset('assets-admin/img/brand/light.svg') }}" alt="Volt logo" /> <img
-                class="navbar-brand-light" src="{{ asset('') }}assets-admin/img/brand/dark.svg" alt="Volt logo" />
+            <img class="navbar-brand-dark" src="{{ asset('assets.admin/img/brand/light.svg') }}" alt="Volt logo" /> <img
+                class="navbar-brand-light" src="{{ asset('assets.admin/img/brand/dark.svg') }}" alt="Volt logo" />
         </a>
         <div class="d-flex align-items-center">
             <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse"
@@ -62,13 +51,12 @@
     </nav>
     {{-- end sidebar --}}
     <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
-        @include('layouts.admin.sidebar')
         <div class="sidebar-inner px-4 pt-3">
             <div
                 class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
                 <div class="d-flex align-items-center">
                     <div class="avatar-lg me-4">
-                        <img src="{{ asset('assets-admin/img/team/profile-picture-3.jpg') }}"
+                        <img src="{{ asset('assets.admin/img/team/profile-picture-3.jpg') }}"
                             class="card-img-top rounded-circle border-white" alt="Bonnie Green">
                     </div>
                     <div class="d-block">
@@ -101,13 +89,13 @@
                 <li class="nav-item">
                     <a href="../../index.html" class="nav-link d-flex align-items-center">
                         <span class="sidebar-icon">
-                            <img src="{{ asset('assets-admin/img/brand/light.svg') }}" height="20" width="20"
+                            <img src="{{ asset('assets.admin/img/brand/light.svg') }}" height="20" width="20"
                                 alt="Volt Logo">
                         </span>
                         <span class="mt-1 ms-1 sidebar-text">Volt Overview</span>
                     </a>
                 </li>
-                <li class="nav-item  active ">
+                <li class="nav-item active">
                     <a href="{{ route('dashboard') }}" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -120,7 +108,7 @@
                     </a>
                 </li>
                 <!-- Tambahkan blok kode ini -->
-                <li class="nav-item  active ">
+                <li class="nav-item active">
                     <a href="{{ route('pelanggan.index') }}" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" data-slot="icon" fill="none" stroke-width="1.5"
@@ -134,6 +122,53 @@
                         <span class="sidebar-text">Pelanggan</span>
                     </a>
                 </li>
+
+<li class="nav-item">
+    <a href="{{ route('user.index') }}" class="nav-link">
+        <span class="sidebar-icon">
+            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </span>
+        <span class="sidebar-text">User</span>
+    </a>
+</li>
+             
+<li class="nav-item">
+    <span class="nav-link collapsed d-flex justify-content-between align-items-center"
+        data-bs-toggle="collapse" data-bs-target="#submenu-app">
+        <span>
+            <span class="sidebar-icon">
+                <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </span>
+            <span class="sidebar-text">Tables</span>
+        </span>
+        <span class="link-arrow">
+            <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </span>
+    </span>
+    <div class="multi-level collapse" role="list" id="submenu-app" aria-expanded="false">
+        <ul class="flex-column nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <span class="sidebar-text">Bootstrap Tables</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
 
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
                 <li class="nav-item">
@@ -168,7 +203,6 @@
             </ul>
         </div>
     </nav>
-
     <main class="content">
         {{-- start header --}}
         <nav class="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
@@ -334,23 +368,16 @@
                     </ul>
                 </div>
             </div>
-            @include('layouts.admin.header')
         </nav>
         {{-- end header --}}
-       {{-- start main content --}}
-       @yield('content')
-        <div class="py-4">
-            <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
-                <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                    <li class="breadcrumb-item">
-                        <a href="#">
-                            <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                                </path>
-                            </svg>
-                            Edit
-                        </a>
-                    </li>
-                    <li class="breadcrumb-item"><a href="#">Pelanggan</a></
+
+        {{-- start main content --}}
+        @yield('content')
+        {{-- end main content --}}
+
+        @include('layouts.admin.footer')
+    </main>
+
+    @include('layouts.admin.js')
+</body>
+</html>
